@@ -58,23 +58,26 @@ span {
   opacity: 0;
   transform: translateY(100px);
   transition: all 0.5s ease-in-out;
-  button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5rem;
-    border-radius: 0rem 1rem 0 0;
-    border: none;
-    background: rgb(73, 73, 73);
-    cursor: pointer;
-    font-weight: bold;
+  &.active {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: all;
   }
 }
-.sliders.active {
-  opacity: 1;
-  transform: translateY(0px);
-  pointer-events: all;
+.sliders button,
+.close-save,
+.close-library {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  border-radius: 0rem 1rem 0 0;
+  border: none;
+  background: rgb(73, 73, 73);
+  cursor: pointer;
+  font-weight: bold;
 }
+
 .controls {
   display: flex;
   flex-direction: column;
@@ -121,7 +124,9 @@ input[type='range'] {
   border-radius: 1rem;
   cursor: pointer;
 }
-.copy-container {
+.copy-container,
+.save-container,
+.library-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -139,7 +144,9 @@ input[type='range'] {
     pointer-events: all;
   }
 }
-.copy-popup {
+.copy-popup,
+.save-popup,
+.library-popup {
   background: white;
   display: flex;
   flex-direction: column;
@@ -157,4 +164,38 @@ input[type='range'] {
   &.active {
     transform: translateY(0rem);
   }
+}
+
+.library-popup {
+  min-width: 40%;
+  padding: 1rem;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+.custom-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+  h4 {
+    flex: 1;
+  }
+}
+.small-preview {
+  display: flex;
+  flex: 1;
+  div {
+    height: 5rem;
+    flex: 1;
+  }
+}
+.pick-palette-btn {
+  height: 5rem;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background: black;
+  color: white;
 }
